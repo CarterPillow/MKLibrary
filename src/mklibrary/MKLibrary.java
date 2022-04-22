@@ -3,16 +3,35 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 public class MKLibrary extends Application {
-@Override
-public void start(Stage primaryStage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("mklibraryfxml.fxml"));
-    primaryStage.setTitle("Hello World");
-    primaryStage.setScene(new Scene(root));
-    primaryStage.show();
-}
-public static void main(String[] args) {
-    launch(args);
-}
+    
+    private static Stage addBookStage = null;
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("mklibraryfxml.fxml"));
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+        
+        createAddBookStage();
+    }
+    
+     public void createAddBookStage(){
+        addBookStage = new Stage();
+        addBookStage.setTitle("Add a Book!");
+        addBookStage.setAlwaysOnTop(true);
+        addBookStage.setResizable(false);
+        addBookStage.initModality(Modality.APPLICATION_MODAL);
+    }
+    
+    public static Stage getAddBookStage(){
+        return addBookStage;
+    }
+    public static void main(String[] args) {
+        launch(args);
+    }
+    
+    
 }

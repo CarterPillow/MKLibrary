@@ -1,11 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mklibrary.MklibraryfxmlController">
-    
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mklibrary.MklibraryfxmlController">
+   <children>
+      <Text layoutX="8.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maximus Knowledge Library" wrappingWidth="583.57568359375">
+         <font>
+            <Font size="47.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7105262875556946" green="0.10087719559669495" blue="0.10087719559669495" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.7099999785423279" green="0.10649999976158142" blue="0.10649999976158142" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.46747967479674796">
+                     <color>
+                        <Color red="0.07537361979484558" green="0.8421052694320679" blue="0.3692874014377594" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.07147498428821564" green="0.07147498428821564" blue="0.7017543911933899" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <GridPane alignment="CENTER" layoutX="23.0" layoutY="142.0" prefHeight="190.0" prefWidth="560.0">
+        <columnConstraints>
+          <ColumnConstraints />
+          <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints maxWidth="19.333375930786133" minWidth="0.0" prefWidth="0.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.66663360595703" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.33331298828125" minWidth="10.0" prefWidth="45.666625976562486" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.66668701171875" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="81.33331298828125" minWidth="10.0" prefWidth="40.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.6666259765625" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="75.3333740234375" minWidth="10.0" prefWidth="40.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.66662597656244" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="addBook" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#addBooks" prefHeight="64.0" prefWidth="137.0" text="Add Book" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button fx:id="checkoutBook" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Checkout Book" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button fx:id="returnBook" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Return Book" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button fx:id="searchBook" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="64.0" prefWidth="115.0" text="Search Book" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+   </children>
 </AnchorPane>

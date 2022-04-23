@@ -14,7 +14,6 @@ public class Book {
     private String summary;
     private String genre;
     private int dewey;
-    
     private static HashMap<String,ArrayList<Integer>> bookCount = new HashMap<>(){{
         put("General Works",new ArrayList<Integer>(){{add(0);add(0);}});
         put("Philosophy/Psychology", new ArrayList<Integer>(){{add(0);add(100);}});
@@ -27,8 +26,7 @@ public class Book {
         put("Literature/Rhetoric",new ArrayList<Integer>(){{add(0);add(800);}});
         put("History/Biography/Geography",new ArrayList<Integer>(){{add(0);add(900);}});
     }};
-    
-    
+
     public Book(String title, String author, int year, String summary, String genre) {
         this.title = title;
         this.author = author;
@@ -36,9 +34,8 @@ public class Book {
         this.summary = summary;
         this.genre = genre;
         this.dewey = getBookCount().get(genre).get(0) + ((getBookCount().get(genre).get(1)));
-        
+
         bookCount.get(genre).set(0,bookCount.get(genre).get(0)+1);
-        
     }
 
     public int getDewey() {
@@ -52,7 +49,7 @@ public class Book {
     public static HashMap<String, ArrayList<Integer>> getBookCount() {
         return bookCount;
     }
-    
+
     public String getTitle() {
         return title;
     }
@@ -97,9 +94,4 @@ public class Book {
     public String toString() {
         return "Book{" + "title=" + title + ", author=" + author + ", year=" + year + ", summary=" + summary + ", genre=" + genre + ", dewey=" + dewey + '}';
     }
-
-    
-    
-    
-    
 }

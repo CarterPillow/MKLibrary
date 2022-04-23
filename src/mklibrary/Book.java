@@ -17,15 +17,15 @@ public class Book {
     
     private static HashMap<String,ArrayList<Integer>> bookCount = new HashMap<>(){{
         put("General Works",new ArrayList<Integer>(){{add(0);add(0);}});
-        put("Philosophy/Psychology", new ArrayList<Integer>(){{add(0);add(0);}});
-        put("Religion",new ArrayList<Integer>(){{add(0);add(0);}});
-        put("Social Sciences",new ArrayList<Integer>(){{add(0);add(0);}});
-        put("Language",new ArrayList<Integer>(){{add(0);add(0);}});
-        put("Natural Sciences/Mathematics",new ArrayList<Integer>(){{add(0);add(0);}});
-        put("Technology",new ArrayList<Integer>(){{add(0);add(0);}});
-        put("The Arts",new ArrayList<Integer>(){{add(0);add(0);}});
-        put("Literature/Rhetoric",new ArrayList<Integer>(){{add(0);add(0);}});
-        put("History/Biography/Geography",new ArrayList<Integer>(){{add(0);add(0);}});
+        put("Philosophy/Psychology", new ArrayList<Integer>(){{add(0);add(100);}});
+        put("Religion",new ArrayList<Integer>(){{add(0);add(200);}});
+        put("Social Sciences",new ArrayList<Integer>(){{add(0);add(300);}});
+        put("Language",new ArrayList<Integer>(){{add(0);add(400);}});
+        put("Natural Sciences/Mathematics",new ArrayList<Integer>(){{add(0);add(500);}});
+        put("Technology",new ArrayList<Integer>(){{add(0);add(600);}});
+        put("The Arts",new ArrayList<Integer>(){{add(0);add(700);}});
+        put("Literature/Rhetoric",new ArrayList<Integer>(){{add(0);add(800);}});
+        put("History/Biography/Geography",new ArrayList<Integer>(){{add(0);add(900);}});
     }};
     
     
@@ -35,7 +35,7 @@ public class Book {
         this.year = year;
         this.summary = summary;
         this.genre = genre;
-        this.dewey = getBookCount().get(genre).get(0) + (100 * (getBookCount().get(genre).get(1)));
+        this.dewey = getBookCount().get(genre).get(0) + ((getBookCount().get(genre).get(1)));
         
         bookCount.get(genre).set(0,bookCount.get(genre).get(0)+1);
         

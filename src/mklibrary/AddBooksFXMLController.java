@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextArea;
@@ -55,10 +56,13 @@ public class AddBooksFXMLController  {
         Book beeb = new Book(title.getText(),author.getText(),Integer.parseInt(year.getText()),summary.getText(),genreMenu.getText());
   
         MKLibrary.getLibrary().add(beeb);
+        System.out.println(beeb);
+        MKLibrary.getAddBookStage().close();
         }
         else{
             
         }
+        
     }
     
 }

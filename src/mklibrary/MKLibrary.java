@@ -10,7 +10,7 @@ public class MKLibrary extends Application {
     
     private static Stage addBookStage = null;
     
-    private static ArrayList<Book> library;
+    private static ArrayList<Book> library = new ArrayList<>();
     
     @Override
     public void start(Stage primaryStage) throws Exception {

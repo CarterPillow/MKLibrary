@@ -4,21 +4,55 @@
  */
 package mklibrary;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Book {
     private String title;
     private String author;
     private int year;
     private String summary;
     private String genre;
-
+    private int dewey;
+    
+    private static HashMap<String,ArrayList<Integer>> bookCount = new HashMap<>(){{
+        put("General Works",new ArrayList<Integer>(){{add(0);add(0);}});
+        put("Philosophy/Psychology", new ArrayList<Integer>(){{add(0);add(0);}});
+        put("Religion",new ArrayList<Integer>(){{add(0);add(0);}});
+        put("Social Sciences",new ArrayList<Integer>(){{add(0);add(0);}});
+        put("Language",new ArrayList<Integer>(){{add(0);add(0);}});
+        put("Natural Sciences/Mathematics",new ArrayList<Integer>(){{add(0);add(0);}});
+        put("Technology",new ArrayList<Integer>(){{add(0);add(0);}});
+        put("The Arts",new ArrayList<Integer>(){{add(0);add(0);}});
+        put("Literature/Rhetoric",new ArrayList<Integer>(){{add(0);add(0);}});
+        put("History/Biography/Geography",new ArrayList<Integer>(){{add(0);add(0);}});
+    }};
+    
+    
     public Book(String title, String author, int year, String summary, String genre) {
         this.title = title;
         this.author = author;
         this.year = year;
         this.summary = summary;
         this.genre = genre;
+        this.dewey = getBookCount().get(genre).get(0) + (100 * (getBookCount().get(genre).get(1)));
+        
+        bookCount.get(genre).set(0,bookCount.get(genre).get(0)+1);
+        
     }
 
+    public int getDewey() {
+        return dewey;
+    }
+
+    public void setDewey(int dewey) {
+        this.dewey = dewey;
+    }
+
+    public static HashMap<String, ArrayList<Integer>> getBookCount() {
+        return bookCount;
+    }
+    
     public String getTitle() {
         return title;
     }
@@ -58,6 +92,13 @@ public class Book {
     public void setGenre(String genre) {
         this.genre = genre;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" + "title=" + title + ", author=" + author + ", year=" + year + ", summary=" + summary + ", genre=" + genre + ", dewey=" + dewey + '}';
+    }
+
+    
     
     
     

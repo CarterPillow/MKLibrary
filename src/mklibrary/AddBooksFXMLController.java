@@ -72,6 +72,7 @@ public class AddBooksFXMLController  {
                 ErrorsFXMLController errorBookController = loader.getController();
                 
                 MKLibrary.getErrorStage().show();
+                errorBookController.printError("One or more fields was not entered correctly.");
             }
             catch(IOException ex){
                 System.out.println(ex);

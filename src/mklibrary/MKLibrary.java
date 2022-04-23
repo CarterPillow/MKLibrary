@@ -19,7 +19,7 @@ public class MKLibrary extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-        
+        createErrorStage();
         createAddBookStage();
     }
     

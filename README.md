@@ -112,14 +112,24 @@ TODO
 <!-- ROADMAP -->
 ## Roadmap
 TODO
-<!--
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+
+- [ ] MK (Maximus Knowledge) Library
+- [ ] Use Book class
+- [ ] Could have HashMap to link Dewey Decimal multiplier to genre (Key=Genre, Value=multiplier)
+- [ ] Then use (number between 0-99) + (100* DD multiplier) = dewey decimal value for the book
+- [ ] Order the books in the list based on the dewey decimal value
+- [ ] make a library, add books, remove books, search for book based on (genre, author, title, year published (could put just year or full date), return book
+- [ ] when adding book add (genre, author, title, date published, summary)
+- [ ] check out a book (keep track of time checked out, have due date for return),
+- [ ] when return a book, (isCheckedOut boolean is changed back to false)
+- [ ] could have a waitlist
+- [ ] if return past due date then add overdue fees
+- [ ] have scroll list of all books on home page, but also have search function
+
+<br>
 
 See the [open issues](https://github.com/CarterPillow/Program5/issues) for a full list of proposed features (and known issues).
--->
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -139,16 +149,3 @@ Don't forget to give the project a star! Thanks again!
 5. Open a Pull Request
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-//MK (Maximus Knowledge) Library
-//Use Book class
-//Could have HashMap to link Dewey Decimal multiplier to genre (Key=Genre, Value=multiplier)
-//Then use (number between 0-99) + (100* DD multiplier) = dewey decimal value for the book
-//Order the books in the list based on the dewey decimal value
-//make a library, add books, remove books, search for book based on (genre, author, title, year published (could put just year or full date), return book
-//when adding book add (genre, author, title, date published, summary)
-//check out a book (keep track of time checked out, have due date for return),
-//when return a book, (isCheckedOut boolean is changed back to false)
-//could have a waitlist
-//if return past due date then add overdue fees
-//have scroll list of all books on home page, but also have search function

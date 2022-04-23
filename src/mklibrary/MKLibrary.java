@@ -1,4 +1,5 @@
 package mklibrary;
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,6 +9,9 @@ import javafx.stage.Stage;
 public class MKLibrary extends Application {
     
     private static Stage addBookStage = null;
+    
+    private static ArrayList<Book> library;
+    
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("mklibraryfxml.fxml"));
@@ -29,6 +33,12 @@ public class MKLibrary extends Application {
     public static Stage getAddBookStage(){
         return addBookStage;
     }
+    
+    public static ArrayList<Book> getLibrary(){
+        return library;
+    }
+    
+    
     public static void main(String[] args) {
         launch(args);
     }

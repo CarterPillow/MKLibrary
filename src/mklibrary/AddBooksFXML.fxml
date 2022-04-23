@@ -20,7 +20,7 @@
       <TextField fx:id="title" layoutX="54.0" layoutY="78.0" />
       <Text layoutX="117.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" />
       <TextArea fx:id="summary" layoutX="261.0" layoutY="170.0" prefHeight="132.0" prefWidth="299.0" />
-      <SplitMenuButton layoutX="389.0" layoutY="78.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="177.0" text="Select Genre">
+      <SplitMenuButton fx:id="genreMenu" layoutX="389.0" layoutY="78.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="177.0" text="Select Genre">
         <items>
             <MenuItem mnemonicParsing="false" onAction="#setGenre" text="General Works" />
           <MenuItem mnemonicParsing="false" onAction="#setGenre" text="Philosophy/Psychology" />

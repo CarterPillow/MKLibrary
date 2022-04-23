@@ -29,8 +29,7 @@ public class MklibraryfxmlController {
             MKLibrary.getAddBookStage().setScene(new Scene(root));
             
             AddBooksFXMLController addBookController = loader.getController();
-            
-                  
+               
             MKLibrary.getAddBookStage().show();
         }
         catch(IOException ex){

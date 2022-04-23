@@ -5,11 +5,14 @@
 package mklibrary;
 
 import com.sun.source.doctree.SummaryTree;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
@@ -50,7 +53,7 @@ public class AddBooksFXMLController  {
     }
     
     public void submitButton(){
-        if (containsOnlyDigits(year.getText())){
+        if (containsOnlyDigits(year.getText()) && !title.getText().equals("") && !genreMenu.getText().equals("Select Genre") && !author.getText().equals("")){
         
         
         Book beeb = new Book(title.getText(),author.getText(),Integer.parseInt(year.getText()),summary.getText(),genreMenu.getText());
@@ -60,7 +63,19 @@ public class AddBooksFXMLController  {
         MKLibrary.getAddBookStage().close();
         }
         else{
-            
+            try{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ErrorsFXML.fxml"));
+                Parent root = loader.load();
+
+                MKLibrary.getErrorStage().setScene(new Scene(root));
+
+                ErrorsFXMLController errorBookController = loader.getController();
+                
+                MKLibrary.getErrorStage().show();
+            }
+            catch(IOException ex){
+                System.out.println(ex);
+            }
         }
         
     }

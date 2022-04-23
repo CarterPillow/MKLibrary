@@ -9,12 +9,13 @@ import javafx.stage.Stage;
 public class MKLibrary extends Application {
     
     private static Stage addBookStage = null;
-    
+    private static Stage errorStage = null;
     private static ArrayList<Book> library = new ArrayList<>();
     
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("mklibraryfxml.fxml"));
+        primaryStage.setResizable(false);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -29,7 +30,18 @@ public class MKLibrary extends Application {
         addBookStage.setResizable(false);
         addBookStage.initModality(Modality.APPLICATION_MODAL);
     }
+     
+    public void createErrorStage(){
+        errorStage = new Stage();
+        errorStage.setTitle("ERROR");
+        errorStage.setAlwaysOnTop(true);
+        errorStage.setResizable(false);
+        errorStage.initModality(Modality.APPLICATION_MODAL);
+    }
     
+    public static Stage getErrorStage(){
+        return errorStage;
+    }
     public static Stage getAddBookStage(){
         return addBookStage;
     }

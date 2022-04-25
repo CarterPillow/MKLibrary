@@ -12,6 +12,7 @@ public class MKLibrary extends Application {
 
     private static Stage addBookStage = null;
     private static Stage errorStage = null;
+    private static Stage searchStage = null;
     private static ArrayList<Book> library = new ArrayList<>();
 
     @Override
@@ -23,6 +24,7 @@ public class MKLibrary extends Application {
         primaryStage.show();
         createErrorStage();
         createAddBookStage();
+        createSearchBookStage();
     }
 
     public void createAddBookStage() {
@@ -31,6 +33,14 @@ public class MKLibrary extends Application {
         addBookStage.setAlwaysOnTop(true);
         addBookStage.setResizable(false);
         addBookStage.initModality(Modality.APPLICATION_MODAL);
+    }
+
+    public void createSearchBookStage() {
+        searchStage = new Stage();
+        searchStage.setTitle("Add a Book!");
+        searchStage.setAlwaysOnTop(true);
+        searchStage.setResizable(false);
+        searchStage.initModality(Modality.APPLICATION_MODAL);
     }
 
     public void createErrorStage() {
@@ -47,6 +57,10 @@ public class MKLibrary extends Application {
 
     public static Stage getAddBookStage() {
         return addBookStage;
+    }
+
+    public static Stage getSearchBookStage() {
+        return searchStage;
     }
 
     public static ArrayList<Book> getLibrary() {

@@ -37,7 +37,7 @@ public class MKLibrary extends Application {
 
     public void createSearchBookStage() {
         searchStage = new Stage();
-        searchStage.setTitle("Add a Book!");
+        searchStage.setTitle("Search a Book!");
         searchStage.setAlwaysOnTop(true);
         searchStage.setResizable(false);
         searchStage.initModality(Modality.APPLICATION_MODAL);

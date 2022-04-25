@@ -4,7 +4,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 public class SearchBookFXMLController {
 
@@ -26,6 +29,9 @@ public class SearchBookFXMLController {
     @FXML
     private TableColumn<Book, String> deweyColumn;
 
+    @FXML
+    private TextField searchField;
+
     private int selectedDewey = -1;
 
     public void createBookList(){
@@ -44,6 +50,22 @@ public class SearchBookFXMLController {
             System.out.println(book);
         }
         selectedDewey = book.getDewey();
+    }
 
+    public void enterSearch(KeyEvent ke) {
+        if (ke.getCode() == KeyCode.ENTER) {
+            search();
+        }
+    }
+    public void search(){
+        String search = searchField.getText();
+        ObservableList<Book> books = bookList.getItems();
+        books.clear();
+        for (Book book : MKLibrary.getLibrary()){
+            if (book.getTitle().contains(search) || book.getAuthor().contains(search) || book.getGenre().contains(search) || (book.getYear() + "").equals(search)){
+                books.add(book);
+            }
+        }
+        bookList.refresh();
     }
 }

@@ -3,6 +3,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
@@ -12,7 +13,7 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="370.0" prefWidth="600.0">
                <children>
-                  <TableView fx:id="bookList" onMouseClicked="#openBookPage" prefHeight="368.0" prefWidth="600.0">
+                  <TableView fx:id="bookList" prefHeight="368.0" prefWidth="600.0">
                     <columns>
                       <TableColumn fx:id="deweyColumn" prefWidth="109.0" text="Dewey Number" />
                       <TableColumn fx:id="titleColumn" prefWidth="154.0" text="Title" />
@@ -25,5 +26,6 @@
             </AnchorPane>
         </content>
       </ScrollPane>
+      <TextField fx:id="searchField" layoutX="20.0" layoutY="2.0" onKeyPressed="#enterSearch" prefHeight="25.0" prefWidth="224.0" promptText="SEARCH" />
    </children>
 </AnchorPane>

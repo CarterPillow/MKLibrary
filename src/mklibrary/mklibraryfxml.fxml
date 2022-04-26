@@ -47,7 +47,7 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Button layoutX="232.0" layoutY="303.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="135.0" text="Return Book">
+      <Button fx:id="returnBook" layoutX="232.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#returnBooks" prefHeight="64.0" prefWidth="135.0" text="Return Book">
          <font>
             <Font size="18.0" />
          </font>

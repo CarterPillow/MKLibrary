@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="mklibrary.ReturnBookFXMLController">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="410.0" prefWidth="610.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="405.0" prefWidth="600.0">
+               <children>
+                  <TableView fx:id="bookList" onMouseClicked="#checkInBook" prefHeight="410.0" prefWidth="610.0">
+                     <columns>
+                        <TableColumn fx:id="deweyColumn" prefWidth="109.0" text="Dewey Number" />
+                        <TableColumn fx:id="titleColumn" prefWidth="154.0" text="Title" />
+                        <TableColumn fx:id="authorColumn" prefWidth="113.0" text="Author" />
+                        <TableColumn fx:id="genreColumn" prefWidth="108.0" text="Genre" />
+                        <TableColumn fx:id="yearColumn" minWidth="0.0" prefWidth="100.0" text="Year Released " />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

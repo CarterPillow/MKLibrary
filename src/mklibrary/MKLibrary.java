@@ -1,3 +1,11 @@
+//Names: Ryan Vassalotti and Carter Hanson
+//Date: 4/26/22
+//Emails: vassryan@aol.com, cahanson18@gmail.com
+//Course: CSC2290 001
+//Assignment Desc: Program 5 - MK Library
+//Honor code: “I will practice academic and personal integrity and
+//excellence of character and expect the same from others.” 
+
 package mklibrary;
 
 import java.util.ArrayList;
@@ -14,6 +22,7 @@ public class MKLibrary extends Application {
     private static Stage errorStage = null;
     private static Stage searchStage = null;
     private static Stage bookInfoStage = null;
+    private static Stage returnBookStage = null;
     private static ArrayList<Book> library = new ArrayList<>();
 
     @Override
@@ -27,8 +36,17 @@ public class MKLibrary extends Application {
         createAddBookStage();
         createSearchBookStage();
         createBookInfoWindow();
+        createReturnBookStage();
     }
 
+    public void createReturnBookStage(){
+        returnBookStage = new Stage();
+        returnBookStage.setTitle("Book Return");
+        returnBookStage.setAlwaysOnTop(true);
+        returnBookStage.setResizable(false);
+        returnBookStage.initModality(Modality.APPLICATION_MODAL);
+    }
+    
     public void createAddBookStage() {
         addBookStage = new Stage();
         addBookStage.setTitle("Add a Book!");
@@ -61,9 +79,14 @@ public class MKLibrary extends Application {
         bookInfoStage.initModality(Modality.APPLICATION_MODAL);
     }
     
+    public static Stage getReturnBookStage(){
+        return returnBookStage;
+    }
+    
     public static Stage getBookInfoStage(){
         return bookInfoStage;
     }
+    
     public static Stage getErrorStage() {
         return errorStage;
     }

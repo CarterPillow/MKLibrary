@@ -10,6 +10,8 @@ public class Book {
     private String summary;
     private String genre;
     private int dewey;
+    private boolean checkedOut;
+    
     private static HashMap<String,ArrayList<Integer>> bookCount = new HashMap<>(){{
         put("General Works",new ArrayList<Integer>(){{add(0);add(0);}});
         put("Philosophy/Psychology", new ArrayList<Integer>(){{add(0);add(100);}});
@@ -30,8 +32,16 @@ public class Book {
         this.summary = summary;
         this.genre = genre;
         this.dewey = getBookCount().get(genre).get(0) + ((getBookCount().get(genre).get(1)));
-
+        this.checkedOut = false;
         bookCount.get(genre).set(0,bookCount.get(genre).get(0)+1);
+    }
+
+    public boolean isCheckedOut() {
+        return checkedOut;
+    }
+
+    public void setCheckedOut(boolean isCheckedOut) {
+        this.checkedOut = isCheckedOut;
     }
 
     public int getDewey() {

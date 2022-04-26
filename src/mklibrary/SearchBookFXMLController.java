@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+
 public class SearchBookFXMLController {
 
     @FXML
@@ -37,21 +38,41 @@ public class SearchBookFXMLController {
     private TextField searchField;
 
     private int selectedDewey = -1;
-
-    public void createBookList(){
+    
+    private SearchBookFXMLController cont;
+    
+    public void createBookList(SearchBookFXMLController con){
+        cont = con;
         titleColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
         authorColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
         genreColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("genre"));
         yearColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("year"));
         deweyColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("dewey"));
-        bookList.getItems().addAll(MKLibrary.getLibrary());
+
+        for (Book b: MKLibrary.getLibrary()) {
+            if (b.isCheckedOut() == false){
+                bookList.getItems().add(b);
+            }
+        }
+        
         bookList.refresh();
     }
-
+    
+    public void refreshSearch(){
+        ObservableList<Book> books = bookList.getItems();
+            books.clear();
+            for (Book b: MKLibrary.getLibrary()) {
+                if (b.isCheckedOut() == false){
+                    books.add(b);
+                }
+        }
+            bookList.refresh();
+    }
+    
     public void openBookPage(MouseEvent e){
         Book book = (Book) bookList.getSelectionModel().getSelectedItem();
-        if (book.getDewey() != selectedDewey){
-            System.out.println(book);
+        if (book != null && book.getDewey() != selectedDewey){
+            
              try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("BookInfoFXML.fxml"));
                 Parent root = loader.load();
@@ -59,17 +80,16 @@ public class SearchBookFXMLController {
                 MKLibrary.getBookInfoStage().setScene(new Scene(root));
 
                 BookInfoFXMLController bookInfoController = loader.getController();
-
+                bookInfoController.fillInfo(book,cont);
                 MKLibrary.getBookInfoStage().show();
             } 
              catch (IOException ex) {
                 System.out.println(ex);
             }
             
-
-            
+            selectedDewey = book.getDewey();
         }
-        selectedDewey = book.getDewey();
+       
 
     }
 

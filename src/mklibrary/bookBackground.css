@@ -1,0 +1,17 @@
+.MainBackground{
+    -fx-background-image: url('../../../bookimage.jpg');
+    -fx-background-repeat: no-repeat; 
+    -fx-background-size: 700 500; 
+    -fx-background-position: center center;
+  
+}
+
+.Title{
+    -fx-text-fill: blue;
+
+}
+
+.TitleBackground{
+    -fx-background-color:#333333;
+    -fx-opacity: 0.7;
+}

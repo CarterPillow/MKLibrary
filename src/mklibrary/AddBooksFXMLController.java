@@ -48,9 +48,21 @@ public class AddBooksFXMLController {
 
             Book beeb = new Book(title.getText(), author.getText(), Integer.parseInt(year.getText()), summary.getText(),
                     genreMenu.getText());
-
-            MKLibrary.getLibrary().add(beeb);
-            System.out.println(beeb);
+            if (MKLibrary.getLibrary().isEmpty()){
+                MKLibrary.getLibrary().add(beeb);
+            }
+            else{
+                for (Book searchBook: MKLibrary.getLibrary()) {
+                    if (beeb.getDewey() < searchBook.getDewey()){
+                        MKLibrary.getLibrary().add(MKLibrary.getLibrary().indexOf(searchBook),beeb);
+                        break;
+                    }
+                    else if (MKLibrary.getLibrary().indexOf(searchBook) == MKLibrary.getLibrary().size() -1){
+                        MKLibrary.getLibrary().add(beeb);
+                        break;
+                    }
+                }
+            }  
             MKLibrary.getAddBookStage().close();
         } else {
             try {

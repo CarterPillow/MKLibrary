@@ -13,18 +13,20 @@ public class MKLibrary extends Application {
     private static Stage addBookStage = null;
     private static Stage errorStage = null;
     private static Stage searchStage = null;
+    private static Stage bookInfoStage = null;
     private static ArrayList<Book> library = new ArrayList<>();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("mklibraryfxml.fxml"));
         primaryStage.setResizable(false);
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("MK Library");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         createErrorStage();
         createAddBookStage();
         createSearchBookStage();
+        createBookInfoWindow();
     }
 
     public void createAddBookStage() {
@@ -51,6 +53,17 @@ public class MKLibrary extends Application {
         errorStage.initModality(Modality.APPLICATION_MODAL);
     }
 
+    public void createBookInfoWindow(){
+        bookInfoStage = new Stage();
+        bookInfoStage.setTitle("Book Information");
+        bookInfoStage.setAlwaysOnTop(true);
+        bookInfoStage.setResizable(false);
+        bookInfoStage.initModality(Modality.APPLICATION_MODAL);
+    }
+    
+    public static Stage getBookInfoStage(){
+        return bookInfoStage;
+    }
     public static Stage getErrorStage() {
         return errorStage;
     }

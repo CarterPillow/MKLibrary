@@ -1,7 +1,11 @@
 package mklibrary;
 
+import java.io.IOException;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -35,21 +39,38 @@ public class SearchBookFXMLController {
     private int selectedDewey = -1;
 
     public void createBookList(){
-        System.out.print(MKLibrary.getLibrary());
         titleColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
         authorColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
         genreColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("genre"));
         yearColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("year"));
         deweyColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("dewey"));
         bookList.getItems().addAll(MKLibrary.getLibrary());
+        bookList.refresh();
     }
 
     public void openBookPage(MouseEvent e){
         Book book = (Book) bookList.getSelectionModel().getSelectedItem();
         if (book.getDewey() != selectedDewey){
             System.out.println(book);
+             try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("BookInfoFXML.fxml"));
+                Parent root = loader.load();
+
+                MKLibrary.getBookInfoStage().setScene(new Scene(root));
+
+                BookInfoFXMLController bookInfoController = loader.getController();
+
+                MKLibrary.getBookInfoStage().show();
+            } 
+             catch (IOException ex) {
+                System.out.println(ex);
+            }
+            
+
+            
         }
         selectedDewey = book.getDewey();
+
     }
 
     public void enterSearch(KeyEvent ke) {
@@ -58,11 +79,11 @@ public class SearchBookFXMLController {
         }
     }
     public void search(){
-        String search = searchField.getText();
+        String search = searchField.getText().toLowerCase();
         ObservableList<Book> books = bookList.getItems();
         books.clear();
         for (Book book : MKLibrary.getLibrary()){
-            if (book.getTitle().contains(search) || book.getAuthor().contains(search) || book.getGenre().contains(search) || (book.getYear() + "").equals(search)){
+            if (book.getTitle().toLowerCase().contains(search) || book.getAuthor().toLowerCase().contains(search) || book.getGenre().toLowerCase().contains(search) || (book.getYear() + "").equals(search)){
                 books.add(book);
             }
         }

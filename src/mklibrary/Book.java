@@ -4,16 +4,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Book {
-    private String title;
-    private String author;
-    private int year;
-    private String summary;
-    private String genre;
-    private int dewey;
-    private boolean checkedOut;
-    
-    private static HashMap<String,ArrayList<Integer>> bookCount = new HashMap<>(){{
-        put("General Works",new ArrayList<Integer>(){{add(0);add(0);}});
+    private String title; // title of the book
+    private String author; // author of the book
+    private int year; // year of publication
+    private String summary; // summary of the book
+    private String genre; // genre of the book
+    private int dewey; // dewey number of the book
+    private boolean checkedOut; // whether the book is checked out
+
+
+    // The number of book per genre in the library is limited to 100
+    private static HashMap<String,ArrayList<Integer>> bookCount = new HashMap<>(){{ // Hashmap storing ArrayList of bookCount and the start of the dewey number for each genre
+        put("General Works",new ArrayList<Integer>(){{add(0);add(0);}}); // first number is the count of books in the library, second number is the start of the dewey number
         put("Philosophy/Psychology", new ArrayList<Integer>(){{add(0);add(100);}});
         put("Religion",new ArrayList<Integer>(){{add(0);add(200);}});
         put("Social Sciences",new ArrayList<Integer>(){{add(0);add(300);}});
@@ -25,7 +27,7 @@ public class Book {
         put("History/Biography/Geography",new ArrayList<Integer>(){{add(0);add(900);}});
     }};
 
-    public Book(String title, String author, int year, String summary, String genre) {
+    public Book(String title, String author, int year, String summary, String genre) { // constructor for the book class with all the parameters
         this.title = title;
         this.author = author;
         this.year = year;
@@ -35,7 +37,7 @@ public class Book {
         this.checkedOut = false;
         bookCount.get(genre).set(0,bookCount.get(genre).get(0)+1);
     }
-
+     // getters / setters
     public boolean isCheckedOut() {
         return checkedOut;
     }
@@ -95,7 +97,7 @@ public class Book {
     public void setGenre(String genre) {
         this.genre = genre;
     }
-
+     // toString method used for debugging
     @Override
     public String toString() {
         return "Book{" + "title=" + title + ", author=" + author + ", year=" + year + ", summary=" + summary + ", genre=" + genre + ", dewey=" + dewey + '}';
